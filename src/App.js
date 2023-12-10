@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Livraison from "./services/Livraison";
+import Stock from "./services/Stock";
+import Catalogue from "./services/Catalogue";
+import Magasin from "./services/Magasin"
+import Facturation from "./services/Facturation";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="md:flex min-h-screen p-2 gap-2 bg-[#3A6EA5] ">
+        <Magasin />
+        <Catalogue />
+        <Stock />
+        <Facturation />
+        <Livraison />
     </div>
   );
 }

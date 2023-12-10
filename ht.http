@@ -1,0 +1,17 @@
+POST http://38.242.131.85:8059/api/v1/delivery-persons
+Content-Type: application/json
+
+{
+  "fullname": "Othmane elkhiari",
+  "email": "Othmaneelkhiari@example.com",
+  "phone": "987-654-3210",
+  "city": "New City"
+}
+
+###
+POST http://38.242.131.85:8059/api/v1/orders/status/27
+
+###
+POST http://38.242.131.85:8059/api/v1/orders/1
+
+{"id":1,"reference":"cmd-100","totalPaye":123.45,"dateCommande":"2023-12-07T14:36:51.024306","client":"{\"fullName\":\"John Doe\",\"email\":\"john.doe@example.com\",\"address\":\"123 Main St, Cityville\",\"phoneNumber\":\"+1234567890\"}","commandeItemDtos":"[{\"id\":1,\"quantity\":5,\"prix\":19.99,\"produit\":\"{\\\"id\\\":1,\\\"reference\\\":\\\"REF123\\\",\\\"libelle\\\":\\\"ProductA\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":101,\\\"libele\\\":\\\"CategoryA\\\"}}\"},{\"id\":2,\"quantity\":3,\"prix\":29.99,\"produit\":\"{\\\"id\\\":2,\\\"reference\\\":\\\"REF456\\\",\\\"libelle\\\":\\\"ProductB\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":102,\\\"libele\\\":\\\"CategoryB\\\"}}\"},{\"id\":3,\"quantity\":1,\"prix\":9.99,\"produit\":\"{\\\"id\\\":3,\\\"reference\\\":\\\"REF789\\\",\\\"libelle\\\":\\\"ProductC\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":103,\\\"libele\\\":\\\"CategoryC\\\"}}\"}]"}
