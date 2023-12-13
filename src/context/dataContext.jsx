@@ -8,6 +8,7 @@ const DataProvider = ({ children }) => {
     const [livraison, setLivraison] = useState([]);
     const [facturation,setFacturation] = useState([]);
     const [product,setProduct] = useState([]);
+    const [catalogue,setCatalogue] = useState([]);
 
     const getLivraison = () => {
         axios.get(process.env.REACT_APP_LVM + "/api/v1/orders").then((res) => {
@@ -46,15 +47,32 @@ const DataProvider = ({ children }) => {
             }).catch((err) => console.log(err))
     }
 
+    const getCatalogue = async()=> {
+        await axios.get("http://jobintech.me:8057/api/products")
+            .then((res) => {
+                setCatalogue(res.data);
+            }).catch((err) => console.log(err))
+    }
+
     useEffect(() => {
         getCommande();
         getLivraison();
         getFac();
         getProducts();
-    }, []);
+        getCatalogue();
+    },[]);
+
+
+    const refresh = () => {
+        getCommande();
+        getLivraison();
+        getFac();
+        getProducts();
+        getCatalogue();
+    }
 
     return (
-    <dataContext.Provider value={{commande,product, postCommande,getFac,facturation, getCommande, livraison, changeStatus}}>
+    <dataContext.Provider value={{catalogue,commande,getProducts,getFac,product,getLivraison, postCommande,facturation, getCommande,refresh, livraison, changeStatus}}>
         {children}
     </dataContext.Provider>)
 }

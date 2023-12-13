@@ -6,16 +6,27 @@ import axios from 'axios'
 import Container from '../components/Container'
 
 function Livraison() {
-    const {livraison,changeStatus } = useContext(dataContext)
+    const {livraison,changeStatus,getCommande,getLivraison } = useContext(dataContext)
     const [deliveryPerson, setDeliveryPerson] = useState()
     const [sta,setSta] = useState({
         did: 0,
         cid: 0
     })
 
+    const changestt = () => {
+        axios.post(process.env.REACT_APP_LVM + "/api/v1/orders/status/"+sta.cid).then((res) => {
+            setTimeout(()=>{
+                getCommande()
+                getLivraison()
+            },1000)
+        }).catch((err) => console.log(err))
+    }
+
     const changeS = () => {
         if (sta.did != 0 && sta.cid != 0) {
-            changeStatus(sta.did, sta.cid)
+            changeStatus(sta.did, sta.cid).then((res) => {
+                console.log(res);
+            }).catch((err) => console.log(err))
         }
         console.log(sta);
     }
@@ -32,7 +43,10 @@ function Livraison() {
         <Header title='Livraison' />
         <Container>
             {
-                livraison && livraison.map((item, index) => (
+                livraison && livraison
+                .slice()
+                .reverse()
+                .map((item, index) => (
                     <div className='font-normal text-[.7em] p-2  mb-2 border-2 border-[#d4d0c8]]'>
                         {
                             <>
@@ -43,7 +57,9 @@ function Livraison() {
                 ))
             }
         </Container>
-        <div className='flex justify-between items-center px-2'>
+        <div className=' justify-between items-center px-2'>
+            <div className='flex'>
+
             <div>
                 <label htmlFor="se">Delivery Person</label>
                 <select className='px-2' onChange={(e)=>setSta({...sta, did: e.target.value})}>
@@ -69,9 +85,16 @@ function Livraison() {
                 }
                 </select>
             </div>
+            </div>
+            <div className='flex'>
             <button onClick={changeS} className='px-2'>
                 save
             </button>
+            <button onClick={changestt} className='px-2'>
+                change status
+            </button>
+            </div>
+            
         </div>
     </div>
   )

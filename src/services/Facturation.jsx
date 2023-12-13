@@ -11,7 +11,10 @@ function Facturation() {
         <Header title='Facturation' />
         <Container>
             {
-                facturation && facturation.map((item, index) => (
+                facturation && facturation
+                .slice()
+                .reverse()
+                .map((item, index) => (
                     <div className='font-normal text-[.7em] p-2  mb-2 border-2 border-[#d4d0c8]]'>
                         {
                             <>

@@ -1,0 +1,9 @@
+{
+  "id": 51,
+  "reference": "cmd-100",
+  "totalPaye": 123.45,
+  "dateCommande": [2023, 11, 29, 22, 14, 19, 934827000],
+  "client": "{\"fullName\":\"John Doe\",\"email\":\"benzooo.ayoub@gmail.com\",\"address\":\"123 Main St, Cityville\",\"phoneNumber\":\"+1234567890\"}",
+  "commandeItemDtos": "[{\"id\":1,\"quantity\":5,\"prix\":5000,\"produit\":\"{\\\"id\\\":1,\\\"reference\\\":\\\"ref1\\\",\\\"libelle\\\":\\\"iphone11\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":101,\\\"libele\\\":\\\"CategoryA\\\"}}\"},{\"id\":2,\"quantity\":3,\"prix\":29.99,\"produit\":\"{\\\"id\\\":2,\\\"reference\\\":\\\"ref2\\\",\\\"libelle\\\":\\\"samsungGalaxyS21\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":102,\\\"libele\\\":\\\"CategoryB\\\"}}\"},{\"id\":3,\"quantity\":1,\"prix\":9.99,\"produit\":\"{\\\"id\\\":3,\\\"reference\\\":\\\"ref6\\\",\\\"libelle\\\":\\\"macbookAirM2\\\",\\\"categorieProduitDto\\\":{\\\"id\\\":103,\\\"libele\\\":\\\"CategoryC\\\"}}\"}]",
+  "methodDePaiement": 1
+}
