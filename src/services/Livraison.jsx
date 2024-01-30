@@ -14,12 +14,12 @@ function Livraison() {
     })
 
     const changestt = () => {
-        axios.post(process.env.REACT_APP_LVM + "/api/v1/orders/status/"+sta.cid).then((res) => {
+        axios.post(process.env.REACT_APP_LVM + "/api/v1/orders/status/"+sta.cid+"DELIVRED").then((res) => {
             setTimeout(()=>{
                 getCommande()
                 getLivraison()
             },1000)
-        }).catch((err) => console.log(err))
+        }).catch((err) => console.log(err)) 
     }
 
     const changeS = () => {
@@ -88,7 +88,7 @@ function Livraison() {
             </div>
             <div className='flex'>
             <button onClick={changeS} className='px-2'>
-                save
+                change delivery
             </button>
             <button onClick={changestt} className='px-2'>
                 change status
